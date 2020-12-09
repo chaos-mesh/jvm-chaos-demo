@@ -13,4 +13,4 @@ WORKDIR /app
 
 COPY --from=jvm_demo_build /app/target/jvm-chaos-demo-*.jar /app/jvm-chaos-demo.jar
 
-ENTRYPOINT [ "sh", "-c", "java $APP_OPTS $JMX_OPTS $JAVA_OPTS $GCLOG_OPTS -Djava.security.egd=file:/dev/./urandom -jar jvm-chaos-demo.jar" ]
+ENTRYPOINT [ "sh", "-c", "java -Djava.security.egd=file:/dev/./urandom -jar jvm-chaos-demo.jar" ]

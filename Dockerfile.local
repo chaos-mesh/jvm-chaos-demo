@@ -1,0 +1,8 @@
+FROM openjdk:8-alpine
+
+RUN mkdir /app
+WORKDIR /app
+
+COPY target/jvm-chaos-demo-*.jar /app/jvm-chaos-demo.jar
+
+ENTRYPOINT [ "sh", "-c", "java -Djava.security.egd=file:/dev/./urandom -jar jvm-chaos-demo.jar" ]
